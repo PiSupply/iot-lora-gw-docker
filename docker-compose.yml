@@ -1,0 +1,22 @@
+version: '3'
+volumes:
+    resin-data:
+services:
+  controller:
+    build: ./controller
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - database: /opt/iotloragateway/database
+  packet_forwarder:
+    build: ./packet_forwarder
+    volumes:
+      - database: /opt/iotloragateway/database
+    devices:
+      - "/dev/spidev0.0:/dev/spidev0.0"
+      - "/dev/mem:/dev/mem"
+    cap_add:
+      - SYS_RAWIO
+volumes:
+  database: {}

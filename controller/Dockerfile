@@ -28,4 +28,12 @@ RUN ln -s /etc/nginx/sites-available/iotloragateway /etc/nginx/sites-enabled/
 
 EXPOSE 80 443
 
-RUN nginx
+STOPSIGNAL SIGTERM
+
+WORKDIR /opt/iotloragateway/controller
+
+COPY files/run.sh .
+
+RUN chmod +x run.sh
+
+ENTRYPOINT ["sh", "/opt/iotloragateway/controller/run.sh"]
