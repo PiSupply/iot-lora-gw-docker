@@ -1,3 +1,6 @@
+#Packet Forwarder Docker File
+#(C) Pi Supply 2019
+#Licensed under the GNU GPL V3 License.
 FROM debian:buster-slim AS buildstep
 
 WORKDIR /opt/iotloragateway/packet_forwarder
@@ -28,7 +31,10 @@ WORKDIR /opt/iotloragateway/packet_forwarder
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get -y install libprotobuf-dev libprotoc-dev libprotobuf-c1
+RUN apt-get -y install libprotobuf-c1
+
+RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/*
 
 COPY --from=buildstep /opt/iotloragateway/packetforwarder_hat .
 COPY --from=buildstep /opt/iotloragateway/packetforwarder_sg0 .

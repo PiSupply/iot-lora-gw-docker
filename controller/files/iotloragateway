@@ -1,0 +1,80 @@
+server {
+listen 80 default_server;
+listen [::]:80 default_server;
+
+
+	root /var/www/iotloragateway/html;
+
+	# Add index.php to the list if you are using PHP
+	index index.php;
+
+	server_name iotloragateway;
+	auth_pam "Secure Zone";
+
+#	location / {
+#		# First attempt to serve request as file, then
+#		# as directory, then fall back to displaying a 404.
+#		try_files $uri $uri/ /index.php?$args;
+#		auth_pam	"Secure Zone";
+#		auth_pam_service_name "nginx";
+#	}
+
+	#Secure Locations
+	location = /index.php {
+		#try_files $uri $uri/ /index.php?$args;
+		auth_pam        "off";
+
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                include snippets/fastcgi-php.conf;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+
+
+	}
+	error_page 401 /passwordFail.php;
+        location = /passwordFail.php {
+                #try_files $uri $uri/ /index.php?$args;
+                auth_pam        "off";
+
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                include snippets/fastcgi-php.conf;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+		internal;
+
+
+        }
+
+	location = / {
+		auth_pam        "off";
+
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                include snippets/fastcgi-php.conf;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+	}
+
+
+	location ~ ^/(css|js|img)/ {
+		auth_pam "off";
+	}
+
+
+
+
+
+	# pass PHP scripts to FastCGI server
+	#
+	location ~ \.php$ {
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+		include snippets/fastcgi-php.conf;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+	}
+
+	#location ~ /\.ht {
+	#	deny all;
+	#}
+
+
+}
