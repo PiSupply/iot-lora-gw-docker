@@ -1,6 +1,5 @@
 version: '3'
-volumes:
-    resin-data:
+
 services:
   controller:
     build: ./controller
