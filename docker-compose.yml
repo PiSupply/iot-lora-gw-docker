@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 
 services:
   controller:
@@ -7,15 +7,22 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - database:/opt/iotloragateway/database
+      - iot_lora_gateway_database:/opt/iotloragateway/database
+      - iot_lora_gateway_ssl:/opt/iotloragateway/ssl
   packet_forwarder:
     build: ./packet_forwarder
     volumes:
-      - database:/opt/iotloragateway/database
+      - type: volume
+        source: iot_lora_gateway_database
+        target: /opt/iotloragateway/database
+      - type: bind
+        source: /sys
+        target: /sys
     devices:
       - "/dev/spidev0.0:/dev/spidev0.0"
       - "/dev/mem:/dev/mem"
     cap_add:
       - SYS_RAWIO
 volumes:
-  database: {}
+  iot_lora_gateway_database: {}
+  iot_lora_gateway_ssl: {}

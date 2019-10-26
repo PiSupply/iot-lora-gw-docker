@@ -31,7 +31,7 @@ WORKDIR /opt/iotloragateway/packet_forwarder
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get -y install libprotobuf-c1
+RUN apt-get -y install libprotobuf-c1 php7.3-cli
 
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
@@ -53,4 +53,8 @@ RUN chmod +x ./packetforwarder_sg1
 
 RUN ls -a
 
-CMD ./packetforwarder_sg0
+COPY files/run_pkt.sh .
+RUN chmod +x run_pkt.sh
+
+
+ENTRYPOINT ["sh", "/opt/iotloragateway/packet_forwarder/run_pkt.sh"]
