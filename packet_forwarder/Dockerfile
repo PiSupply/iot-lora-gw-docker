@@ -39,12 +39,13 @@ RUN rm -rf /var/lib/apt/lists/*
 COPY --from=buildstep /opt/iotloragateway/packetforwarder_hat .
 COPY --from=buildstep /opt/iotloragateway/packetforwarder_sg0 .
 COPY --from=buildstep /opt/iotloragateway/packetforwarder_sg1 .
-COPY --from=buildstep /opt/iotloragateway/dev/iot-lora-gateway/template_configs/EU-global_conf.json ./global_conf.json
-COPY --from=buildstep /opt/iotloragateway/dev/iot-lora-gateway/template_configs/local_conf.json.template ./local_conf.json
 COPY --from=buildstep /usr/local/lib/libpaho-embed-* /usr/lib/
 COPY --from=buildstep /usr/lib/libttn* /usr/lib/
 
+COPY lora_templates lora_templates/
 
+RUN cp lora_templates/local_conf.json.template local_conf.json
+RUN cp lora_templates/EU-global_conf.json global_conf.json
 
 RUN chmod 777 ./local_conf.json
 RUN chmod +x ./packetforwarder_hat
@@ -54,7 +55,9 @@ RUN chmod +x ./packetforwarder_sg1
 RUN ls -a
 
 COPY files/run_pkt.sh .
+COPY files/configurePktFwd.php .
 RUN chmod +x run_pkt.sh
+RUN chmod +x configurePktFwd.php
 
 
 ENTRYPOINT ["sh", "/opt/iotloragateway/packet_forwarder/run_pkt.sh"]

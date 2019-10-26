@@ -3,7 +3,7 @@
 #Run Packetforward
 #This script runs on the boot of the container
 
-
+php -f configurePktFwd.php
 
 #Run the configuration script for the packet forwarder
 

@@ -20,7 +20,6 @@ services:
         target: /sys
     devices:
       - "/dev/spidev0.0:/dev/spidev0.0"
-      - "/dev/mem:/dev/mem"
     cap_add:
       - SYS_RAWIO
 volumes:

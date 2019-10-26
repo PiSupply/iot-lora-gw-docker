@@ -11,7 +11,6 @@ git clone https://github.com/PiSupply/ttn-gateway-connector.git
 git clone https://github.com/PiSupply/protobuf-c.git
 git clone -b docker --single-branch https://github.com/PiSupply/packet_forwarder.git
 git clone https://github.com/PiSupply/iot-lora-controller.git
-git clone -b release --single-branch https://github.com/PiSupply/iot-lora-gateway.git
 
 cd /opt/iotloragateway/dev/lora_gateway/libloragw
 sed -i -e 's/PLATFORM= .*$/PLATFORM= iotloragw_rpi/g' library.cfg
