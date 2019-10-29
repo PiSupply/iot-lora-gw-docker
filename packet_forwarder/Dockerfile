@@ -31,7 +31,7 @@ WORKDIR /opt/iotloragateway/packet_forwarder
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get -y install libprotobuf-c1 php7.3-cli
+RUN apt-get -y install libprotobuf-c1 php7.3-cli net-tools
 
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
