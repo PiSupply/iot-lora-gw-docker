@@ -9,6 +9,9 @@ services:
     volumes:
       - iot_lora_gateway_database:/opt/iotloragateway/database
       - iot_lora_gateway_ssl:/opt/iotloragateway/ssl
+    deploy:
+      restart_policy:
+        condition: on-failure
   packet_forwarder:
     build: ./packet_forwarder
     volumes:
@@ -22,6 +25,9 @@ services:
       - "/dev/spidev0.0:/dev/spidev0.0"
     cap_add:
       - SYS_RAWIO
+    deploy:
+      restart_policy:
+        condition: on-failure
 volumes:
   iot_lora_gateway_database: {}
   iot_lora_gateway_ssl: {}

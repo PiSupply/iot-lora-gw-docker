@@ -1,0 +1,39 @@
+gateway-friendly-name: No Name
+gateway-description: Nebra LTD. LoRa Gateway
+gateway-type: 0
+
+packet-forwarder-1:
+  enabled: true
+  providerType: 0
+  packet-forwader-id:
+  packet-forwarder-eui:
+  packet-forwarder-key:
+  frequency-plan: EU868
+  router:
+  location:
+    lat: 0.0
+    lon: 0.0
+    alt: 0
+
+packet-forwarder-2:
+  enabled: false
+  providerType: 0
+  packet-forwader-id:
+  packet-forwarder-eui:
+  packet-forwarder-key:
+  frequency-plan: EU868
+  router:
+  location:
+    lat: 0.0
+    lon: 0.0
+    alt: 0
+
+gps:
+  enabled: false
+
+lte-modem:
+  enabled: false
+  apn:
+  number:
+  username:
+  password:
