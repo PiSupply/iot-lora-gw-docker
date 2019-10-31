@@ -12,15 +12,9 @@ RUN apt-get install -y sqlite3 nginx php7.3-fpm php7.3-sqlite3 php7.3-json php7.
 
 RUN git clone https://github.com/PiSupply/iot-lora-controller.git
 
-RUN ls
-
-WORKDIR /etc/nginx/sites-enabled
-
-RUN rm default
+RUN rm /etc/nginx/sites-enabled/default & rm /etc/nginx/sites-available/default
 
 WORKDIR /etc/nginx/sites-available
-
-RUN rm default
 
 COPY files/iotloragateway .
 
