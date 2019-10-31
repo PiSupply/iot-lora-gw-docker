@@ -7,7 +7,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - iot_lora_gateway_database:/opt/iotloragateway/database
+      - iot_lora_gateway_config:/opt/iotloragateway/config
       - iot_lora_gateway_ssl:/opt/iotloragateway/ssl
     deploy:
       restart_policy:
@@ -16,8 +16,8 @@ services:
     build: ./packet_forwarder
     volumes:
       - type: volume
-        source: iot_lora_gateway_database
-        target: /opt/iotloragateway/database
+        source: iot_lora_gateway_config
+        target: /opt/iotloragateway/config
       - type: bind
         source: /sys
         target: /sys
@@ -29,5 +29,5 @@ services:
       restart_policy:
         condition: on-failure
 volumes:
-  iot_lora_gateway_database: {}
+  iot_lora_gateway_config: {}
   iot_lora_gateway_ssl: {}

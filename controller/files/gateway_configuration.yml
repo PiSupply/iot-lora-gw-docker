@@ -1,6 +1,12 @@
-gateway-friendly-name: No Name
-gateway-description: Nebra LTD. LoRa Gateway
-gateway-type: 0
+gateway-info:
+  gateway-friendly-name: No Name
+  gateway-description: Nebra LTD. LoRa Gateway
+  gateway-type: 0
+
+user:
+  email-address:
+  password:
+  2facode:
 
 packet-forwarder-1:
   enabled: true
@@ -33,7 +39,7 @@ gps:
 
 lte-modem:
   enabled: false
-  apn:
-  number:
+  apn:3internet
+  number:*99#
   username:
   password:
