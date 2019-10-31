@@ -1,7 +1,5 @@
 server {
-listen 80 default_server;
-listen [::]:80 default_server;
-
+	listen [::]:80 ipv6only=off default_server;
 
 	root /opt/iotloragateway/controller/iot-lora-controller/;
 
@@ -31,8 +29,7 @@ listen [::]:80 default_server;
 }
 
 server {
-listen 443 ssl default_server;
-listen [::]:443 ssl default_server;
+listen [::]:443 ssl default_server ipv6only=off;
 
 ssl_certificate /opt/iotloragateway/ssl/iotloragateway.crt;
 ssl_certificate_key /opt/iotloragateway/ssl/iotloragateway.key;
