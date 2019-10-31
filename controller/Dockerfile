@@ -6,31 +6,19 @@ FROM debian:buster-slim
 
 WORKDIR /opt/iotloragateway/controller
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y sqlite3 nginx php7.3-fpm php7.3-sqlite3 php7.3-json php7.3-curl git && \
+    git clone https://github.com/PiSupply/iot-lora-controller.git && \
+    rm /etc/nginx/sites-enabled/default && \
+    rm /etc/nginx/sites-available/default
 
-RUN apt-get install -y sqlite3 nginx php7.3-fpm php7.3-sqlite3 php7.3-json php7.3-curl git
-
-RUN git clone https://github.com/PiSupply/iot-lora-controller.git
-
-RUN ls
-
-WORKDIR /etc/nginx/sites-enabled
-
-RUN rm default
-
-WORKDIR /etc/nginx/sites-available
-
-RUN rm default
-
-COPY files/iotloragateway .
+COPY files/iotloragateway /etc/nginx/sites-available/
 
 RUN ln -s /etc/nginx/sites-available/iotloragateway /etc/nginx/sites-enabled/
 
 EXPOSE 80 443
 
 STOPSIGNAL SIGTERM
-
-WORKDIR /opt/iotloragateway/controller
 
 COPY files/run.sh .
 
