@@ -10,10 +10,16 @@ RUN apt-get update && apt-get upgrade -y
 
 RUN apt-get install -y nginx php7.3-fpm  php7.3-json php7.3-curl git curl \
  php7.3-zip unzip libyaml-dev php-pear php7.3-dev
-RUN pecl install yaml-2.0.0 && echo "extension=yaml.so"
+
+RUN pecl install yaml-2.0.4
+
+RUN echo "extension=yaml.so" > /etc/php/7.3/fpm/conf.d/20-yaml.ini
+
 
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
+
+ARG moo=42
 
 RUN git clone -b yamlConversion --single-branch https://github.com/PiSupply/iot-lora-controller.git
 
@@ -31,9 +37,10 @@ EXPOSE 80 443
 STOPSIGNAL SIGTERM
 
 WORKDIR /opt/iotloragateway/controller
-
+COPY files/gateway_configuration.yml .
 COPY files/run.sh .
 
 RUN chmod +x run.sh
+
 
 ENTRYPOINT ["sh", "/opt/iotloragateway/controller/run.sh"]

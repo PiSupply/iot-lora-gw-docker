@@ -2,6 +2,7 @@ gateway-info:
   gateway-friendly-name: No Name
   gateway-description: Nebra LTD. LoRa Gateway
   gateway-type: 0
+  inital-setup: 0
 
 user:
   email-address:
@@ -39,7 +40,7 @@ gps:
 
 lte-modem:
   enabled: false
-  apn:3internet
-  number:*99#
+  apn: 3internet
+  number: "*99#"
   username:
   password:
