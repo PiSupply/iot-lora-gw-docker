@@ -11,7 +11,12 @@ if [ ! -f "/opt/iotloragateway/ssl/dhparam.pem" ]; then
   openssl dhparam -out /opt/iotloragateway/ssl/dhparam.pem 2048
 fi
 
-cp /opt/iotloragateway/controller/gateway_configuration.yml /opt/iotloragateway/config/gateway_configuration.yml
+if [ ! -f "/opt/iotloragateway/config/gateway_configuration.yml" ]; then
+  cp /opt/iotloragateway/controller/gateway_configuration.yml /opt/iotloragateway/config/gateway_configuration.yml
+  chmod 777 /opt/iotloragateway/config/gateway_configuration.yml
+fi
+chown www-data:www-data /opt/iotloragateway/config/gateway_configuration.yml
+chmod 755 /opt/iotloragateway/config/gateway_configuration.yml
 
 
 service php7.3-fpm start

@@ -15,11 +15,10 @@ RUN pecl install yaml-2.0.4
 
 RUN echo "extension=yaml.so" > /etc/php/7.3/fpm/conf.d/20-yaml.ini
 
-
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
-ARG moo=42
+ARG moo=61
 
 RUN git clone -b yamlConversion --single-branch https://github.com/PiSupply/iot-lora-controller.git
 
@@ -32,9 +31,9 @@ COPY files/iotloragateway .
 RUN ln -s /etc/nginx/sites-available/iotloragateway /etc/nginx/sites-enabled/
 
 
-EXPOSE 80 443
 
-STOPSIGNAL SIGTERM
+
+EXPOSE 80 443
 
 WORKDIR /opt/iotloragateway/controller
 COPY files/gateway_configuration.yml .

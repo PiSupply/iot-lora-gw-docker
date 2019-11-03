@@ -1,8 +1,9 @@
+---
 gateway-info:
   gateway-friendly-name: No Name
   gateway-description: Nebra LTD. LoRa Gateway
   gateway-type: 0
-  inital-setup: 0
+  initial-setup: 0
 
 user:
   email-address:
@@ -44,3 +45,5 @@ lte-modem:
   number: "*99#"
   username:
   password:
+
+...
