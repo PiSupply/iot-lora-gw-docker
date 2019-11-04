@@ -13,7 +13,7 @@ user:
 packet-forwarder-1:
   enabled: true
   providerType: 0
-  packet-forwader-id:
+  packet-forwarder-id:
   packet-forwarder-eui:
   packet-forwarder-key:
   frequency-plan: EU868
@@ -26,7 +26,7 @@ packet-forwarder-1:
 packet-forwarder-2:
   enabled: false
   providerType: 0
-  packet-forwader-id:
+  packet-forwarder-id:
   packet-forwarder-eui:
   packet-forwarder-key:
   frequency-plan: EU868
