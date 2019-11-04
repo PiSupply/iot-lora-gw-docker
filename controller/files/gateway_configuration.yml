@@ -12,7 +12,7 @@ user:
 
 packet-forwarder-1:
   enabled: true
-  providerType: 0
+  providerType: TTN
   packet-forwarder-id:
   packet-forwarder-eui:
   packet-forwarder-key:
@@ -25,7 +25,7 @@ packet-forwarder-1:
 
 packet-forwarder-2:
   enabled: false
-  providerType: 0
+  providerType: TTN
   packet-forwarder-id:
   packet-forwarder-eui:
   packet-forwarder-key:
