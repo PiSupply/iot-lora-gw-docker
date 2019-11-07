@@ -9,6 +9,7 @@ user:
   email-address:
   password:
   2facode:
+  salt: 
 
 packet-forwarder-1:
   enabled: true
@@ -18,10 +19,7 @@ packet-forwarder-1:
   packet-forwarder-key:
   frequency-plan: EU868
   router:
-  location:
-    lat: 0.0
-    lon: 0.0
-    alt: 0
+
 
 packet-forwarder-2:
   enabled: false
@@ -31,13 +29,15 @@ packet-forwarder-2:
   packet-forwarder-key:
   frequency-plan: EU868
   router:
-  location:
-    lat: 0.0
-    lon: 0.0
-    alt: 0
+
 
 gps:
   enabled: false
+
+location:
+  lat: 0.0
+  lon: 0.0
+  alt: 0
 
 lte-modem:
   enabled: false
@@ -45,5 +45,6 @@ lte-modem:
   number: "*99#"
   username:
   password:
+
 
 ...
