@@ -9,13 +9,14 @@ user:
   email-address:
   password:
   2facode:
-  salt: 
+  salt:
 
 packet-forwarder-1:
   enabled: true
   providerType: TTN
   packet-forwarder-id:
   packet-forwarder-eui:
+  packet-forwarder-mac:
   packet-forwarder-key:
   frequency-plan: EU868
   router:
@@ -26,6 +27,7 @@ packet-forwarder-2:
   providerType: TTN
   packet-forwarder-id:
   packet-forwarder-eui:
+  packet-forwarder-mac:
   packet-forwarder-key:
   frequency-plan: EU868
   router:
