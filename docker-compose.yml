@@ -13,6 +13,7 @@ services:
       restart_policy:
         condition: on-failure
   packet_forwarder:
+    image: packetfwd
     build: ./packet_forwarder
     volumes:
       - type: volume
@@ -28,6 +29,26 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
+    environment:
+      - LORAMODULE=0
+  packet_forwarder_2:
+    image: packetfwd
+    volumes:
+      - type: volume
+        source: iot_lora_gateway_config
+        target: /opt/iotloragateway/config
+      - type: bind
+        source: /sys
+        target: /sys
+    devices:
+      - "/dev/spidev1.0:/dev/spidev1.0"
+    cap_add:
+      - SYS_RAWIO
+    deploy:
+      restart_policy:
+        condition: on-failure
+    environment:
+      - LORAMODULE=1
 volumes:
   iot_lora_gateway_config: {}
   iot_lora_gateway_ssl: {}

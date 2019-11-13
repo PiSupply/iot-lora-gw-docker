@@ -1,14 +1,14 @@
 {
     "gateway_conf": {
-        "gateway_ID": "ryanteck-dev",
-        "contact_email" : "ryan@pi-supply.com",
-	"description": "CHANGE-ME",
+        "gateway_ID": "",
+        "contact_email" : "",
+	"description": "",
 	 "servers": [
             {
-                "serv_type": "ttn",
-                "server_address": "bridge.eu.thethings.network",
-                "serv_gw_id": "ryanteck-dev",
-                "serv_gw_key": "ttn-account-v2.Y2eHev7splbiWpi7fKIJ06vkuJnQJNYoUIbiwTG78JOy11zTIlb3Co8Ps6lX3DCsMT7qH-gqlc_nMYX-eXZFtw",
+                "serv_type": "",
+                "server_address": "",
+                "serv_gw_id": "",
+                "serv_gw_key": "",
                 "serv_enabled": true
 	    }
 	],
