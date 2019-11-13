@@ -18,7 +18,7 @@ RUN echo "extension=yaml.so" > /etc/php/7.3/fpm/conf.d/20-yaml.ini
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
-ARG moo=103
+ARG moo=106
 
 RUN git clone -b yamlConversion --single-branch https://github.com/PiSupply/iot-lora-controller.git
 
