@@ -17,7 +17,7 @@ if [ ! -f "/opt/iotloragateway/config/gateway_configuration.yml" ]; then
 fi
 
 #For development only overwrite the configuration file
-cp /opt/iotloragateway/controller/gateway_configuration.yml /opt/iotloragateway/config/gateway_configuration.yml
+#cp /opt/iotloragateway/controller/gateway_configuration.yml /opt/iotloragateway/config/gateway_configuration.yml
 
 chown www-data:www-data /opt/iotloragateway/config/gateway_configuration.yml
 chmod 755 /opt/iotloragateway/config/gateway_configuration.yml
