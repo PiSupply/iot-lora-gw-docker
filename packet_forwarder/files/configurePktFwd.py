@@ -45,13 +45,19 @@ if(configLora['providerType'] == "TTN"):
     newConfig['gateway_conf']['servers'][0]['serv_type'] = "ttn"
     newConfig['gateway_conf']['servers'][0]['serv_gw_key'] = configLora['packet-forwarder-key']
     newConfig['gateway_conf']['servers'][0]['serv_gw_id'] = configLora['packet-forwarder-id']
+    newConfig['gateway_conf']['servers'][0]['serv_port_up'] = 1700
+    newConfig['gateway_conf']['servers'][0]['serv_port_down'] = 1700
 
 #If Loriot
 elif(configLora['providerType'] == "LORIOT"):
     newConfig['gateway_conf']['servers'][0]['serv_type'] = "semtech"
+    newConfig['gateway_conf']['servers'][0]['serv_port_up'] = 1700
+    newConfig['gateway_conf']['servers'][0]['serv_port_down'] = 1700
 
 else:
     newConfig['gateway_conf']['servers'][0]['serv_type'] = "semtech"
+    newConfig['gateway_conf']['servers'][0]['serv_port_up'] = 1700
+    newConfig['gateway_conf']['servers'][0]['serv_port_down'] = 1700
 
 #GPS Module
 if(config['gps']['enabled'] == True):
