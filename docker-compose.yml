@@ -11,7 +11,7 @@ services:
       - iot_lora_gateway_ssl:/opt/iotloragateway/ssl
     restart: on-failure
   packet_forwarder:
-    image: pisupply/iot-lora-gw-pktfwd:3db3e969108efdc3fcc66e565f907e5d7eb79989
+    image: pisupply/iot-lora-gw-pktfwd:6e86326e3762293c034a4b9a5a29f23010e4f507
     volumes:
       - type: volume
         source: iot_lora_gateway_config
@@ -34,7 +34,7 @@ services:
         max-size: "200k"
         max-file: "2"
   packet_forwarder_2:
-    image: pisupply/iot-lora-gw-pktfwd:3db3e969108efdc3fcc66e565f907e5d7eb79989
+    image: pisupply/iot-lora-gw-pktfwd:6e86326e3762293c034a4b9a5a29f23010e4f507
     volumes:
       - type: volume
         source: iot_lora_gateway_config
