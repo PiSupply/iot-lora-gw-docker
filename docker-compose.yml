@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   controller:
-    image: pisupply/iot-lora-gw-controller:latest
+    image: pisupply/iot-lora-gw-controller:359d8184aea9d6c45131128deef627e93c0d4973
     ports:
       - "80:80"
       - "443:443"
@@ -11,7 +11,7 @@ services:
       - iot_lora_gateway_ssl:/opt/iotloragateway/ssl
     restart: on-failure
   packet_forwarder:
-    image: pisupply/iot-lora-gw-pktfwd:65f2ed7848a04009812e4b1f1663b76045609e6f
+    image: pisupply/iot-lora-gw-pktfwd:3db3e969108efdc3fcc66e565f907e5d7eb79989
     volumes:
       - type: volume
         source: iot_lora_gateway_config
@@ -28,7 +28,7 @@ services:
     environment:
       - LORAMODULE=0
   packet_forwarder_2:
-    image: pisupply/iot-lora-gw-pktfwd:65f2ed7848a04009812e4b1f1663b76045609e6f
+    image: pisupply/iot-lora-gw-pktfwd:3db3e969108efdc3fcc66e565f907e5d7eb79989
     volumes:
       - type: volume
         source: iot_lora_gateway_config
