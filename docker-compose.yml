@@ -28,6 +28,11 @@ services:
     restart: on-failure
     environment:
       - LORAMODULE=0
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "2"
   packet_forwarder_2:
     image: pisupply/iot-lora-gw-pktfwd:3db3e969108efdc3fcc66e565f907e5d7eb79989
     volumes:
@@ -45,6 +50,11 @@ services:
     restart: on-failure
     environment:
       - LORAMODULE=1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "2"
 volumes:
   iot_lora_gateway_config: {}
   iot_lora_gateway_ssl: {}
