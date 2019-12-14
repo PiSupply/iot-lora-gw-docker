@@ -21,9 +21,10 @@ services:
         target: /sys
     devices:
       - "/dev/spidev0.0:/dev/spidev0.0"
+      - "/dev/mem:/dev/mem"
     cap_add:
       - SYS_RAWIO
-    
+
     restart: on-failure
     environment:
       - LORAMODULE=0
@@ -38,6 +39,7 @@ services:
         target: /sys
     devices:
       - "/dev/spidev1.0:/dev/spidev1.0"
+      - "/dev/mem:/dev/mem"
     cap_add:
       - SYS_RAWIO
     restart: on-failure
