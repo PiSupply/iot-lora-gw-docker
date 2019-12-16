@@ -1,6 +1,9 @@
 #!/bin/bash
 #Move into directory
 cd /opt/iotloragateway/iot-lora-gw-docker
+#Update the OS
+apt update
+apt upgrade -y
 #Pull latest updates from git
 git pull
 #Pull latest containers from docker
