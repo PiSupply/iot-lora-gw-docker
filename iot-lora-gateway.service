@@ -1,6 +1,6 @@
 [Unit]
 Description=IOT LoRa Gateway Packet Forwarder
-After=network-online.target
+After=containerd.service
 
 [Service]
 Type=simple
