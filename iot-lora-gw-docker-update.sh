@@ -2,8 +2,8 @@
 #Move into directory
 cd /opt/iotloragateway/iot-lora-gw-docker
 #Update the OS
-apt update
-apt upgrade -y
+apt-get update
+apt-get upgrade -y
 #Pull latest updates from git
 git pull
 #Pull latest containers from docker
@@ -15,4 +15,7 @@ systemctl daemon-reload
 #Re-enable service
 systemctl enable iot-lora-gateway.service
 
-#Update 4G Configuration
+
+
+#Python Script that updates the 4G Config
+python3 configure4Gmodule.py
