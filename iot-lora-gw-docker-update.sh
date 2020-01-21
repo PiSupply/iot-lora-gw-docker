@@ -15,7 +15,7 @@ systemctl daemon-reload
 #Re-enable service
 systemctl enable iot-lora-gateway.service
 
-
+/opt/iotloragateway/iot-lora-gw-docker/4GInserted.sh
 
 #Python Script that updates the 4G Config
 python3 configure4Gmodule.py
