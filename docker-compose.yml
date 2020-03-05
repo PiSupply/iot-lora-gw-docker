@@ -7,21 +7,18 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - type: volume
-        source: iot_lora_gateway_config
-        target: /opt/iotloragateway/config
-      - type: volume
-        source: iot_lora_gateway_ssl
-        target: /opt/iotloragateway/ssl
       - type: bind
-        source: /sys/power/state
-        target: /sys/power/state
+        source: /opt/iotloragateway/config
+        target: /opt/iotloragateway/config
+      - type: bind
+        source: /opt/iotloragateway/ssl
+        target: /opt/iotloragateway/ssl
     restart: on-failure
   packet_forwarder:
     image: pisupply/iot-lora-gw-pktfwd:975396f09c71000338951cdac1b4bb33dbdab12e
     volumes:
-      - type: volume
-        source: iot_lora_gateway_config
+      - type: bind
+        source: /opt/iotloragateway/config
         target: /opt/iotloragateway/config
       - type: bind
         source: /sys
@@ -39,8 +36,8 @@ services:
   packet_forwarder_2:
     image: pisupply/iot-lora-gw-pktfwd:975396f09c71000338951cdac1b4bb33dbdab12e
     volumes:
-      - type: volume
-        source: iot_lora_gateway_config
+      - type: bind
+        source: /opt/iotloragateway/config
         target: /opt/iotloragateway/config
       - type: bind
         source: /sys
