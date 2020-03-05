@@ -50,7 +50,3 @@ services:
     restart: on-failure
     environment:
       - LORAMODULE=1
-
-volumes:
-  iot_lora_gateway_config: {}
-  iot_lora_gateway_ssl: {}
