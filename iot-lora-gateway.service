@@ -7,6 +7,7 @@ Type=simple
 WorkingDirectory=/opt/iotloragateway/iot-lora-gw-docker/
 ExecStartPre=/opt/iotloragateway/iot-lora-gw-docker/iot-lora-gw-docker-update.sh
 ExecStart=/opt/iotloragateway/iot-lora-gw-docker/iot-lora-gw-docker-run.sh
+ExecStop=/opt/iotloragateway/iot-lora-gw-docker/iot-lora-gw-docker-stop.sh
 Restart=always
 RestartSec=10
 
