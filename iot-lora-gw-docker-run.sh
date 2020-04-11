@@ -10,4 +10,4 @@ apt-get upgrade -y
 docker-compose pull
 
 #Start docker container
-docker-compose restart
+docker-compose up 
