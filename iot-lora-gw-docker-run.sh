@@ -6,7 +6,7 @@ cd /opt/iotloragateway/iot-lora-gw-docker
 apt-get update
 apt-get upgrade -y
 
-docker-compose down -v
+docker-compose down 
 
 #Pull latest containers from docker
 docker-compose pull
