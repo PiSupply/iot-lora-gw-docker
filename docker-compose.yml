@@ -13,7 +13,8 @@ services:
       - type: bind
         source: /opt/iotloragateway/ssl
         target: /opt/iotloragateway/ssl
-    restart: no
+    restart: none
+    
   packet_forwarder:
     image: pisupply/iot-lora-gw-pktfwd:f2912e0355c42f2d6cf4475cc3091c3c042fc71c
     volumes:
@@ -29,7 +30,7 @@ services:
     cap_add:
       - SYS_RAWIO
 
-    restart: no
+    restart: none
     environment:
       - LORAMODULE=0
 
@@ -47,6 +48,6 @@ services:
       - "/dev/mem:/dev/mem"
     cap_add:
       - SYS_RAWIO
-    restart: no
+    restart: none
     environment:
       - LORAMODULE=1
