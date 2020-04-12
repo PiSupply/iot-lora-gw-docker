@@ -16,7 +16,7 @@ services:
     restart: "no"
 
   packet_forwarder:
-    image: pisupply/iot-lora-gw-pktfwd:693656460d2b3a65725a2bdd2ed2c8144820acfa
+    image: pisupply/iot-lora-gw-pktfwd:946255f93b1be841673c8e0d7d7d81a66610270c
     volumes:
       - type: bind
         source: /opt/iotloragateway/config
@@ -27,15 +27,15 @@ services:
     devices:
       - "/dev/spidev1.2:/dev/spidev1.2"
       - "/dev/mem:/dev/mem"
-    cap_add:
-      - SYS_RAWIO
+    #cap_add:
+    #  - SYS_RAWIO
 
     restart: "no"
     environment:
       - LORAMODULE=0
 
   packet_forwarder_2:
-    image: pisupply/iot-lora-gw-pktfwd:693656460d2b3a65725a2bdd2ed2c8144820acfa
+    image: pisupply/iot-lora-gw-pktfwd:946255f93b1be841673c8e0d7d7d81a66610270c
     volumes:
       - type: bind
         source: /opt/iotloragateway/config
@@ -46,8 +46,8 @@ services:
     devices:
       - "/dev/spidev2.0:/dev/spidev2.0"
       - "/dev/mem:/dev/mem"
-    cap_add:
-      - SYS_RAWIO
+    #cap_add:
+    #  - SYS_RAWIO
     restart: "no"
     environment:
       - LORAMODULE=1
