@@ -6,9 +6,9 @@ cd /opt/iotloragateway/iot-lora-gw-docker
 git pull
 
 #Reset GPIO Pins
-#/opt/iotloragateway/iot-lora-gw-docker/reset-22.sh
-#/opt/iotloragateway/iot-lora-gw-docker/reset-38.sh
-#/opt/iotloragateway/iot-lora-gw-docker/reset-39.sh
+/opt/iotloragateway/iot-lora-gw-docker/reset-22.sh
+/opt/iotloragateway/iot-lora-gw-docker/reset-38.sh
+/opt/iotloragateway/iot-lora-gw-docker/reset-39.sh
 
 #Run 4G Part
 /opt/iotloragateway/iot-lora-gw-docker/4GInserted.sh
