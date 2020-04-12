@@ -16,7 +16,7 @@ services:
     restart: "no"
 
   packet_forwarder:
-    image: pisupply/iot-lora-gw-pktfwd:946255f93b1be841673c8e0d7d7d81a66610270c
+    image: pisupply/iot-lora-gw-pktfwd:dc334cb25c5d72634aad6ef88fc221b2a11a95ce
     volumes:
       - type: bind
         source: /opt/iotloragateway/config
@@ -35,7 +35,7 @@ services:
       - LORAMODULE=0
 
   packet_forwarder_2:
-    image: pisupply/iot-lora-gw-pktfwd:946255f93b1be841673c8e0d7d7d81a66610270c
+    image: pisupply/iot-lora-gw-pktfwd:dc334cb25c5d72634aad6ef88fc221b2a11a95ce
     volumes:
       - type: bind
         source: /opt/iotloragateway/config
