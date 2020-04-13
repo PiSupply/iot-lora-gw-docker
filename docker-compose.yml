@@ -16,7 +16,7 @@ services:
     restart: "no"
 
   packet_forwarder:
-    image: pisupply/iot-lora-gw-pktfwd:167cea509d6d941063880ee98b147c6004ffa6ba
+    image: pisupply/iot-lora-gw-pktfwd:7412821a1003a46c43d81ff7a1c29873763bc07b
     volumes:
       - type: bind
         source: /opt/iotloragateway/config
