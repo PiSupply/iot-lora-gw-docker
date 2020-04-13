@@ -16,7 +16,7 @@ services:
     restart: "no"
 
   packet_forwarder:
-    image: pisupply/iot-lora-gw-pktfwd:15d1c934940cf6d3f8470ed1f0d92351df3f8a22
+    image: pisupply/iot-lora-gw-pktfwd:62cc9667d8c034992bf23b7d9cc907f5837c85c6
     volumes:
       - type: bind
         source: /opt/iotloragateway/config
@@ -28,8 +28,8 @@ services:
       - "/dev/spidev1.2:/dev/spidev1.2"
       - "/dev/spidev2.0:/dev/spidev2.0"
       - "/dev/mem:/dev/mem"
-    #cap_add:
-    #  - SYS_RAWIO
+    cap_add:
+     - SYS_RAWIO
 
     restart: "no"
     environment:
