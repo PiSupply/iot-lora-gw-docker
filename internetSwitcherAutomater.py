@@ -42,11 +42,15 @@ for name, interface in ifcfg.interfaces().items():
     if(device == "wwan0"):
         LTE = 1
 
-
-
-
 #If WiFi or LTE are not plugged in then there is no point in running, go into endless sleep loop.
 
+if(WI_FI == 0 && LTE == 0):
+    while True:
+        sleep(300)
+
+#Lets re-assign priorities anyway to be in an order.
+#eth0 = 10, wlan0 = 20, wwan = 30, if the device goes offline we add 30
+#so eth would = 40, wlan would equal 50. WWAN should never need changing.
 
 while True:
     #First check eth0
