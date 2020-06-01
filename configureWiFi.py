@@ -13,10 +13,12 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#Configure 4G Module
-#Configures the 4G Module based on the YAML File
+#Configure Wi-Fi Module
+#Configures the Wi-Fi Module based on the YAML File
+
 import os
 import yaml
 import json
 from pprint import pprint
+
 from time import sleep
