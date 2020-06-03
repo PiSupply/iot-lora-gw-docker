@@ -14,6 +14,8 @@ services:
         source: /opt/iotloragateway/ssl
         target: /opt/iotloragateway/ssl
     restart: "no"
+    network_mode: host
+    privileged: true
 
   packet_forwarder:
     image: pisupply/iot-lora-gw-pktfwd:d9c26a90e84235ede3709aa32a16447a1049851b
@@ -25,6 +27,7 @@ services:
         source: /sys
         target: /sys
     devices:
+      - "/dev/spidev0.0:/dev/spidev0.0"
       - "/dev/spidev1.2:/dev/spidev1.2"
       - "/dev/spidev2.0:/dev/spidev2.0"
       - "/dev/serial1:/dev/serial1"
@@ -33,5 +36,6 @@ services:
      - SYS_RAWIO
 
     restart: "no"
-    environment:
-      - LORAMODULE=0
+    network_mode: host
+    privileged: true
+

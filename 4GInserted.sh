@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+##Update 4G Configuration#
+nmcli connection down iot5g
+=======
 #IoT LoRa Gateway Image Software
 #Copyright (C) 2018-2019  Nebra LTD. T/a Pi Supply
 #This program is free software: you can redistribute it and/or modify
@@ -16,7 +20,8 @@
 
 #Update 4G Configuration
 nmcli connection down iot3g
+>>>>>>> 3376e3a7b822fd2c532b5f83b2e9fe71a9542385
 ip link set dev wwan0 down
 echo Y > /sys/class/net/wwan0/qmi/raw_ip
 ip link set dev wwan0 up
-nmcli connection up iot3g
+nmcli connection up iot5g
