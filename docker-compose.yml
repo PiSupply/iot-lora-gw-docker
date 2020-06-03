@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   controller:
-    image: pisupply/iot-lora-gw-controller:7e8badd6b01cc7d23116f9034c93e0264e83d285
+    image: pisupply/iot-lora-gw-controller:c2d300271ab547a1494c4c4ca38b098c390a89e6
     ports:
       - "80:80"
       - "443:443"
@@ -13,6 +13,9 @@ services:
       - type: bind
         source: /opt/iotloragateway/ssl
         target: /opt/iotloragateway/ssl
+      - type: bind
+        source: /opt/iotloragateway/ssl
+        target: /run/systemd
     restart: "no"
     network_mode: host
     privileged: true
