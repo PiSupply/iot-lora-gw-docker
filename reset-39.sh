@@ -16,7 +16,6 @@
 #along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-whoami
 if [ ! -d "/sys/class/gpio/gpio39" ]; then
     echo "39" > /sys/class/gpio/export
 fi

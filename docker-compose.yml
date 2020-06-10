@@ -21,7 +21,7 @@ services:
     privileged: true
 
   packet_forwarder_0:
-    image: pisupply/iot-lora-gw-pktfwd:ef0832c540a026049fbdf4336f1f1eefd114796c
+    image: pisupply/iot-lora-gw-pktfwd:1f9a6bba50686f7dab83e9ea5d03abc9707bf1aa
     volumes:
       - type: bind
         source: /opt/iotloragateway/config
@@ -45,7 +45,7 @@ services:
 
 
   packet_forwarder_1:
-    image: pisupply/iot-lora-gw-pktfwd:ef0832c540a026049fbdf4336f1f1eefd114796c
+    image: pisupply/iot-lora-gw-pktfwd:1f9a6bba50686f7dab83e9ea5d03abc9707bf1aa
     volumes:
       - type: bind
         source: /opt/iotloragateway/config
