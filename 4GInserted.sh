@@ -1,6 +1,6 @@
 ##Update 4G Configuration#
 nmcli connection down iot5g
-=======
+
 #IoT LoRa Gateway Image Software
 #Copyright (C) 2018-2019  Nebra LTD. T/a Pi Supply
 #This program is free software: you can redistribute it and/or modify
