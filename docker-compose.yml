@@ -38,7 +38,7 @@ services:
     cap_add:
      - SYS_RAWIO
     environment:
-    - LORAMODULE=1
+    - LORAMODULE=0
     restart: "no"
     network_mode: host
     privileged: true
