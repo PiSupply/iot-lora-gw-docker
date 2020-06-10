@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ##Update 4G Configuration#
 nmcli connection down iot5g
 =======
@@ -18,9 +17,6 @@ nmcli connection down iot5g
 #along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-#Update 4G Configuration
-nmcli connection down iot3g
->>>>>>> 3376e3a7b822fd2c532b5f83b2e9fe71a9542385
 ip link set dev wwan0 down
 echo Y > /sys/class/net/wwan0/qmi/raw_ip
 ip link set dev wwan0 up
