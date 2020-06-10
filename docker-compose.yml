@@ -37,6 +37,8 @@ services:
       - "/dev/mem:/dev/mem"
     cap_add:
      - SYS_RAWIO
+    environment:
+    - LORAMODULE=1
     restart: "no"
     network_mode: host
     privileged: true
@@ -57,6 +59,8 @@ services:
       - "/dev/mem:/dev/mem"
     cap_add:
      - SYS_RAWIO
+    environment:
+    - LORAMODULE=1
     restart: "no"
     network_mode: host
     privileged: true
