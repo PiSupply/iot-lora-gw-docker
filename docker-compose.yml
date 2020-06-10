@@ -21,7 +21,7 @@ services:
     privileged: true
 
   packet_forwarder_0:
-    image: pisupply/iot-lora-gw-pktfwd:1f9a6bba50686f7dab83e9ea5d03abc9707bf1aa
+    image: pisupply/iot-lora-gw-pktfwd:30a94b5a669b11aa9a9d8059200d585477fc494c
     volumes:
       - type: bind
         source: /opt/iotloragateway/config
@@ -32,7 +32,6 @@ services:
     devices:
       - "/dev/spidev0.0:/dev/spidev0.0"
       - "/dev/spidev1.2:/dev/spidev1.2"
-      - "/dev/spidev2.0:/dev/spidev2.0"
       - "/dev/serial1:/dev/serial1"
       - "/dev/mem:/dev/mem"
     cap_add:
@@ -45,7 +44,7 @@ services:
 
 
   packet_forwarder_1:
-    image: pisupply/iot-lora-gw-pktfwd:1f9a6bba50686f7dab83e9ea5d03abc9707bf1aa
+    image: pisupply/iot-lora-gw-pktfwd:30a94b5a669b11aa9a9d8059200d585477fc494c
     volumes:
       - type: bind
         source: /opt/iotloragateway/config
