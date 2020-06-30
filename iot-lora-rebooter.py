@@ -17,7 +17,7 @@ while True:
         f.write("")
         f.close()
         #Restart the service
-        os.exec("systemctl restart iot-lora-gateway.service");
+        os.system("systemctl restart iot-lora-gateway.service");
         #Sleep 2 Minutes
         sleep(120)
 
@@ -28,7 +28,7 @@ while True:
         f.write("")
         f.close()
         #Restart the service
-        os.exec("shutdown -r now");
+        os.system("shutdown -r now");
 
 
     #Shutdown the gaetway
@@ -38,7 +38,7 @@ while True:
         f.write("")
         f.close()
         #Restart the service
-        os.exec("shutdown -h now");
+        os.system("shutdown -h now");
 
 
     else:
