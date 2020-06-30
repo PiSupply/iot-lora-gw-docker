@@ -31,4 +31,4 @@ docker-compose down
 docker-compose pull
 
 #Start docker container
-docker-compose up
+docker-compose up --remove-orphans
