@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   controller:
-    image: pisupply/iot-lora-gw-controller:22ab3badecc4069b20ad4fed863df6c61222bf1f
+    image: pisupply/iot-lora-gw-controller:37d23f67b6c2bdca18ea7df7b65b5b86942b0ec2
     ports:
       - "80:80"
       - "443:443"
