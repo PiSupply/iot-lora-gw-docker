@@ -1,0 +1,13 @@
+[Unit]
+Description=IOT LoRa Gateway Restarter
+After=containerd.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/iotloragateway/iot-lora-gw-docker/
+ExecStart=/opt/iotloragateway/iot-lora-gw-docker/iot-lora-rebooter.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
