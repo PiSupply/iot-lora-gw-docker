@@ -19,4 +19,4 @@
 #Move into directory
 cd /opt/iotloragateway/iot-lora-gw-docker
 
-docker-compose down
+docker-compose down --remove-orphans
