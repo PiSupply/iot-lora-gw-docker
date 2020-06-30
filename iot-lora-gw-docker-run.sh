@@ -22,6 +22,9 @@ cd /opt/iotloragateway/iot-lora-gw-docker
 apt-get update
 apt-get upgrade -y
 
+#Write the internet files to folder
+ifconfig > /opt/iotloragateway/config/ifconfig.txt
+
 docker-compose down
 
 #Pull latest containers from docker
