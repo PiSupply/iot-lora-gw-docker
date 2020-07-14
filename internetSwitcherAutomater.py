@@ -44,9 +44,16 @@ for name, interface in ifcfg.interfaces().items():
 
 #If WiFi or LTE are not plugged in then there is no point in running, go into endless sleep loop.
 
-if(WI_FI == 0 && LTE == 0):
+if(WI_FI == 0 and LTE == 0):
+    print("No Wi-Fi or LTE adaptors detected.")
     while True:
         sleep(300)
+
+print("Network interfaces detected:")
+if(WI_FI):
+    print("Wi-Fi Adaptor Found")
+if(LTE):
+    print("LTE Adaptor Found")
 
 #Lets re-assign priorities anyway to be in an order.
 #eth0 = 10, wlan0 = 20, wwan = 30, if the device goes offline we add 30
@@ -54,3 +61,4 @@ if(WI_FI == 0 && LTE == 0):
 
 while True:
     #First check eth0
+    pass
