@@ -26,12 +26,14 @@ from time import sleep
 from pythonping import ping
 import ifcfg
 import json
+import subprocess
 
 
 #Let's ping google dns
 PING_SERVER = "8.8.8.8" #If we can't access google, there's a 99.99% chance it's our internet.
 WI_FI = 0 #As default we'll say there is no wi-fi module.
 LTE = 0 #As default we'll say there is no LTE module.
+CURRENT_INTERFACE = 0 #Use this to keep track of the interface being used
 
 #Check if Wi-Fi or LTE adaptors are plugged in
 for name, interface in ifcfg.interfaces().items():
@@ -49,16 +51,38 @@ if(WI_FI == 0 and LTE == 0):
     while True:
         sleep(300)
 
-print("Network interfaces detected:")
-if(WI_FI):
-    print("Wi-Fi Adaptor Found")
-if(LTE):
-    print("LTE Adaptor Found")
-
 #Lets re-assign priorities anyway to be in an order.
 #eth0 = 10, wlan0 = 20, wwan = 30, if the device goes offline we add 30
 #so eth would = 40, wlan would equal 50. WWAN should never need changing.
 
+#Set the eth0
+subprocess.call(['ifmetric', "eth0", "10"])
+
+print("Network interfaces detected:")
+if(WI_FI):
+    print("Wi-Fi Adaptor Found")
+    subprocess.call(['ifmetric', "wlan0", "20"])
+if(LTE):
+    print("LTE Adaptor Found")
+    subprocess.call(['ifmetric', "wwan0", "30"])
+
+print("Priorities reconfigured")
+
+
+
 while True:
     #First check eth0
-    pass
+    eth0_ping = subprocess.call(['ping', '-I','eth0', '-c' ,'1', '-t' , '15', '127.0.0.2'])
+    if(eth0_ping>0):
+        print("Connection lost")
+        if(WI_FI):
+            #lets try WiFi
+            wlan_ping = subprocess.call(['ping', '-I','wlan0', '-c' ,'1', '-t' , '15', PING_SERVER])
+        elif(LTE):
+            #lets try LTE
+            lte_ping = subprocess.call(['ping', '-I','wlan0', '-c' ,'1', '-t' , '15', PING_SERVER])
+        else:
+            print("Complete failure?")
+            
+
+    sleep(60)
