@@ -22,6 +22,13 @@ cd /opt/iotloragateway/iot-lora-gw-docker
 #Pull latest updates from git
 git pull
 
+install -m 644 iot-lora-gateway.service /lib/systemd/system/
+install -m 644 iot-lora-restarter.service /lib/systemd/system/
+install -m 644 iot-lora-eth-switcher.service /lib/systemd/system/
+systemctl daemon-reload
+systemctl enable iot-lora-gateway.service
+systemctl enable iot-lora-restarter.service
+systemctl enable iot-lora-eth-switcher.service
 #Reset GPIO Pins
 /opt/iotloragateway/iot-lora-gw-docker/reset-22.sh
 /opt/iotloragateway/iot-lora-gw-docker/reset-38.sh
