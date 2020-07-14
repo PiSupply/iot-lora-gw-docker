@@ -80,9 +80,10 @@ while True:
             wlan_ping = subprocess.call(['ping', '-I','wlan0', '-c' ,'1', '-t' , '15', PING_SERVER])
         elif(LTE):
             #lets try LTE
-            lte_ping = subprocess.call(['ping', '-I','wlan0', '-c' ,'1', '-t' , '15', PING_SERVER])
+            lte_ping = subprocess.call(['ping', '-I','wwan0', '-c' ,'1', '-t' , '15', PING_SERVER])
         else:
             print("Complete failure?")
-            
+
+
 
     sleep(60)
