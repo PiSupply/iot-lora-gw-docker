@@ -72,7 +72,7 @@ print("Priorities reconfigured")
 
 while True:
     #First check eth0
-    eth0_ping = subprocess.call(['ping', '-I','eth0', '-c' ,'1', '-t' , '15', '127.0.0.2'])
+    eth0_ping = subprocess.call(['ping', '-I','eth0', '-c' ,'1', '-t' , '15', PING_SERVER])
     if(eth0_ping>0):
         print("Connection lost")
         if(WI_FI):
