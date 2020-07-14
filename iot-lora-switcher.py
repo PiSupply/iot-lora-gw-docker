@@ -34,7 +34,7 @@ PING_SERVER = "8.8.8.8" #If we can't access google, there's a 99.99% chance it's
 WI_FI = 0 #As default we'll say there is no wi-fi module.
 LTE = 0 #As default we'll say there is no LTE module.
 CURRENT_INTERFACE = 0 #Use this to keep track of the interface being used
-
+TARGET_INTERFACE = 0 #Use this to keep track of the interface being used
 #Check if Wi-Fi or LTE adaptors are plugged in
 for name, interface in ifcfg.interfaces().items():
     # do something with interface
@@ -78,11 +78,40 @@ while True:
         if(WI_FI):
             #lets try WiFi
             wlan_ping = subprocess.call(['ping', '-I','wlan0', '-c' ,'1', '-t' , '15', PING_SERVER])
+            if(wlan_ping == 0):
+                TARGET_INTERFACE = 1
         elif(LTE):
             #lets try LTE
             lte_ping = subprocess.call(['ping', '-I','wwan0', '-c' ,'1', '-t' , '15', PING_SERVER])
+            if(lte_ping == 0):
+                TARGET_INTERFACE = 2
         else:
             print("Complete failure?")
+    else:
+        TARGET_INTERFACE = 0
+    #Now change interface
+    if(TARGET_INTERFACE != CURRENT_INTERFACE):
+        if(TARGET_INTERFACE == 0):
+            print("Change to ETH0")
+            subprocess.call(['ifmetric', "eth0", "10"])
+            subprocess.call(['ifmetric', "wlan0", "20"])
+            subprocess.call(['ifmetric', "wwan0", "30"])
+        elif(TARGET_INTERFACE == 1):
+            print("Change to WLAN0")
+            subprocess.call(['ifmetric', "eth0", "40"])
+            subprocess.call(['ifmetric', "wlan0", "20"])
+            subprocess.call(['ifmetric', "wwan0", "30"])
+        elif(TARGET_INTERFACE == 2):
+            print("Change to WWAN0")
+            subprocess.call(['ifmetric', "eth0", "40"])
+            subprocess.call(['ifmetric', "wlan0", "50"])
+            subprocess.call(['ifmetric', "wwan0", "30"])
+        else:
+            print("Complete failure?")
+        CURRENT_INTERFACE = TARGET_INTERFACE
+
+
+
 
 
 
