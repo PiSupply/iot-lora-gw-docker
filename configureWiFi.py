@@ -22,3 +22,26 @@ import json
 from pprint import pprint
 
 from time import sleep
+
+#Easiest method, replace the entire file each time.
+
+
+with open("/opt/iotloragateway/config/gateway_configuration.yml", 'r') as yamlFile:
+    try:
+        config = yaml.safe_load(yamlFile)
+        configWifi = config['wifi']
+    except yaml.YAMLError as exc:
+        print(exc)
+
+wpa_supp = open("/etc/wpa_supplicant/wpa_supplicant.conf", "w")
+
+wpa_supp.write("""
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=%s
+
+network={
+ ssid="%s"
+ psk="%s"
+}
+""" % (configWifi['region'], configWifi['ssid'], configWifi['password']))
