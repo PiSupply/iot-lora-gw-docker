@@ -38,4 +38,6 @@ systemctl enable iot-lora-gateway-eth-switcher.service
 /opt/iotloragateway/iot-lora-gw-docker/4GInserted.sh
 
 #Python Script that updates the 4G Config
-python3 configure4Gmodule.py
+/opt/iotloragateway/iot-lora-gw-docker/configure4Gmodule.py
+#And to update the wifi
+/opt/iotloragateway/iot-lora-gw-docker/configureWiFi.py
