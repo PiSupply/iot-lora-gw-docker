@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #IoT LoRa Gateway Image Software
 #Copyright (C) 2018-2019  Nebra LTD. T/a Pi Supply
 #This program is free software: you can redistribute it and/or modify
@@ -33,17 +34,17 @@ with open("/opt/iotloragateway/config/gateway_configuration.yml", 'r') as yamlFi
 connectionName = "iot5g"
 
 #Take the connection down
-subprocess.call(['nmcli', "connection", "down" , connectionName)
+subprocess.call(['nmcli', "connection", "down" , connectionName])
 
 #Reconfigure all the things
 #First the phone number, altough this is rare to change
-subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.number", configWifi['number'])
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.number", configWifi['number']])
 #APN
-subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.apn", configWifi['apn'])
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.apn", configWifi['apn']])
 #Username
-subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.username", configWifi['username'])
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.username", configWifi['username']])
 #Password
-subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.password", configWifi['password'])
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.password", configWifi['password']])
 
 #And... Back up
-subprocess.call(['nmcli', "connection", "up" , connectionName)
+subprocess.call(['nmcli', "connection", "up" , connectionName])
