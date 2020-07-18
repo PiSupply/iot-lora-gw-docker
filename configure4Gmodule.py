@@ -38,13 +38,13 @@ subprocess.call(['nmcli', "connection", "down" , connectionName])
 
 #Reconfigure all the things
 #First the phone number, altough this is rare to change
-subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.number", configWifi['number']])
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.number", configLte['number']])
 #APN
-subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.apn", configWifi['apn']])
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.apn", configLte['apn']])
 #Username
-subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.username", configWifi['username']])
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.username", configLte['username']])
 #Password
-subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.password", configWifi['password']])
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.password", configLte['password']])
 
 #And... Back up
 subprocess.call(['nmcli', "connection", "up" , connectionName])
