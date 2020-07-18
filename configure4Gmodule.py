@@ -20,3 +20,24 @@ import yaml
 import json
 from pprint import pprint
 from time import sleep
+import subprocess
+
+#Open the YAML
+with open("/opt/iotloragateway/config/gateway_configuration.yml", 'r') as yamlFile:
+    try:
+        config = yaml.safe_load(yamlFile)
+        configLte = config['lte-modem']
+    except yaml.YAMLError as exc:
+        print(exc)
+
+connectionName = "iot5g"
+
+#Reconfigure all the things
+#First the phone number, altough this is rare to change
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.number", configWifi['number'])
+#APN
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.apn", configWifi['apn'])
+#Username
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.username", configWifi['username'])
+#Password
+subprocess.call(['nmcli', "connection", "modify" , connectionName, "gsm.password", configWifi['password'])
